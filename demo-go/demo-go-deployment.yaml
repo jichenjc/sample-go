@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-go
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: demo-go
+  template:
+    metadata:
+      labels:
+        app: demo-go
+    spec:
+      containers:
+        - image: swr.cn-north-1.myhuaweicloud.com/zhf/demo-go:latest
+          name: demo-go
+          ports:
+            - containerPort: 8888
