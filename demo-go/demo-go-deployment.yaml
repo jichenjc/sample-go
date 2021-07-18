@@ -14,7 +14,7 @@ spec:
         app: demo-go
     spec:
       containers:
-      - image: swr.cn-north-1.myhuaweicloud.com/zhf/demo-go-auto:3c3b0a095fc4bdf81a881dc12d224be3775ff81a
+      - image: swr.cn-north-1.myhuaweicloud.com/zhf/demo-go-auto:2ecf87f03529e914c68cd79892a4e2206239aa82
         name: demo-go
         ports:
         - containerPort: 8888
