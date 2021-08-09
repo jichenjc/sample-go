@@ -15,6 +15,7 @@ func receive(event cloudevents.Event) {
 }
 
 func main() {
+	log.SetFlags(log.Ldate | log.Lmicroseconds)
 	log.Println("start main")
 	// The default client is HTTP.
 	c, err := cloudevents.NewDefaultClient()
