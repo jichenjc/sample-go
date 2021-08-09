@@ -8,6 +8,9 @@ import (
 )
 
 func main() {
+	log.SetFlags(log.Ldate | log.Lmicroseconds)
+	log.Println("start main")
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "hello, myrat!!")
 	})
