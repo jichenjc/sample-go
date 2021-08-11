@@ -1,21 +1,28 @@
-# 打包依赖阶段使用golang作为基础镜像
-FROM golang:1.14 as builder
+FROM golang:alpine
 
-# 启用go module
+# 为我们的镜像设置必要的环境变量
 ENV GO111MODULE=on \
-    GOPROXY=https://goproxy.cn,direct
+ CGO_ENABLED=0 \
+ GOOS=linux \
+ GOARCH=amd64
 
-WORKDIR /app
+# 移动到工作目录：/build
+WORKDIR /build
+
+# 将代码复制到容器中
 COPY . .
 
-RUN GOOS=linux GOARCH=amd64 go build .
+# 将我们的代码编译成二进制可执行文件app
+RUN go build -o app .
 
-FROM alpine
+# 移动到用于存放生成的二进制文件的 /dist 目录
+WORKDIR /dist
 
-WORKDIR /app
+# 将二进制文件从 /build 目录复制到这里
+RUN cp /build/app .
 
-RUN go build .
-
+# 声明服务端口
 EXPOSE 8888
 
-ENTRYPOINT ["./main"]
+# 启动容器时运行的命令
+CMD ["/dist/app"]
