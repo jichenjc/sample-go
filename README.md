@@ -1,2 +1,2 @@
-# sample-go aaa
+# sample-go a
 Sample go app
