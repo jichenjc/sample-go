@@ -14,7 +14,8 @@ func main() {
 	log.Println(runtime.GOARCH)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "hello, myrat!!")
+		fmt.Fprint(w, "hello world! this is arch ")
+		fmt.Fprint(w, runtime.GOARCH)
 	})
 
 	port := os.Getenv("PORT")
