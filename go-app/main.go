@@ -5,11 +5,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 )
 
 func main() {
 	log.SetFlags(log.Ldate | log.Lmicroseconds)
 	log.Println("start main")
+	log.Println(runtime.GOARCH)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "hello, myrat!!")
