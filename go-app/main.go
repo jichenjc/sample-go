@@ -14,7 +14,7 @@ func main() {
 	log.Println(runtime.GOARCH)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "hello world!! This is arch ")
+		fmt.Fprint(w, "hello world, This is arch ")
 		fmt.Fprint(w, runtime.GOARCH)
 	})
 
