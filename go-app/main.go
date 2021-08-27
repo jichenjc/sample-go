@@ -23,6 +23,6 @@ func main() {
 		port = "8888"
 	}
 
-	log.Printf("Handling HTTP requests on %s.", port)
+	log.Printf("Handling HTTP iiiirequests on %s.", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
